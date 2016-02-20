@@ -1,19 +1,5 @@
 #include "ioheader.h"
-
-int main(int argc, char* argv[])
-{
-
-  FILE *filepointer;
-  filepointer = fopen("testtest.txt", "a");
-
-  fprintf(filepointer, "TEST");
-
-
-
-}
-
-
-
+#include <stdio.h>
 
 void readfile(struct account accarray[], int* numcust, char filename[])
 {
