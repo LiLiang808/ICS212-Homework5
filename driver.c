@@ -1,13 +1,20 @@
+#include "ioheader.h"
 #include <stdio.h>
+#include <string.h>
+
 
 int main(int argc, char* argv[])
 {
+    struct account bankone[5];
+    int numcustomers = 1;
 
-    FILE *filepointer;
+    strcat(bankone[0].name, "Name");
+    bankone[0].accountno = 1;
+    bankone[0].balance = 10.11;
 
-    filepointer=fopen("testtest.txt","a");
+    writefile(bankone, 1, "test.txt");
 
-    fprintf(filepointer,"This is a test");
+    readfile(bankone, &numcustomers, "test.txt");
 
 
 }
