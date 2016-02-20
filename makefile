@@ -8,5 +8,5 @@ driver.o : driver.c
 	cc -c driver.c
 
 clean : 
-	rm Homework5
+	rm Homework5 iofunctions.o driver.o
 
