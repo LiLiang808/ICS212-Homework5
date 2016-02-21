@@ -6,15 +6,17 @@
 int main(int argc, char* argv[])
 {
     struct account bankone[5];
-    int numcustomers = 4;
+    int numcustomers = 5;
     int customer = 0;
     int accnoTestCount = 1;
+    float balanceTestCount = 1.00;
 
     for (customer = 0; customer < numcustomers; customer++)
     {
     strcpy(bankone[customer].name, "Name");
     bankone[customer].accountno = accnoTestCount;
-    bankone[customer].balance = 10.11;
+    bankone[customer].balance = balanceTestCount;
+    balanceTestCount++
     accnoTestCount++;
     }
 
