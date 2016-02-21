@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
     strcpy(bankone[customer].name, "Name");
     bankone[customer].accountno = accnoTestCount;
     bankone[customer].balance = balanceTestCount;
-    balanceTestCount++
+    balanceTestCount++;
     accnoTestCount++;
     }
 
