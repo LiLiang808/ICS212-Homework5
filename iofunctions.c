@@ -42,8 +42,6 @@ void readfile(struct account accarray[], int* numcust, char filename[])
 
             accarray[customer].balance = atof(line);
 
-
-
         }
         fclose(filepointer);
     }
@@ -60,13 +58,19 @@ void writefile(struct account accarray[], int numcust, char filename[])
     FILE *filepointer;
     filepointer = fopen(filename, "a");
 
-    for (customer = 0; customer < numcust; customer++)
+    if (filepointer != NULL)
     {
-        fprintf(filepointer,"%s\n%d\n%f\n", accarray[customer].name,
-        accarray[customer].accountno, accarray[customer].balance);
+        for (customer = 0; customer < numcust; customer++)
+        {
+            fprintf(filepointer,"%s\n%d\n%f\n", accarray[customer].name,
+            accarray[customer].accountno, accarray[customer].balance);
 
+        }
+
+        fclose(filepointer);
     }
-
-    fclose(filepointer);
-
+    else
+    {
+        printf("\nError opening file");
+    }
 }
