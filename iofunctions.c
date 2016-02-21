@@ -1,5 +1,7 @@
 #include "ioheader.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 
 void readfile(struct account accarray[], int* numcust, char filename[])
@@ -17,16 +19,27 @@ void readfile(struct account accarray[], int* numcust, char filename[])
     if (filepointer != NULL)
     {
 
-
         while (feof(filepointer) == 0)
         {
-            printf("\nCustomer %d:\n", customer);
+            fgets(accarray[customer].name, 80, filepointer);
 
-            for (counter = 0; counter < 3; counter++)
-            {
             fgets(line, 80, filepointer);
-            printf("%s",line);
+
+           if (line[strlen(line) - 1] == '\n')
+           {
+           line[strlen(line) - 1] = '\0';
+           }
+            accarray[customer].accountno = atoi(line);
+
+            fgets(line, 80, filepointer);
+
+            if (line[strlen(line) - 1] == '\n')
+            {
+            line[strlen(line) - 1] = '\0';
             }
+
+            accarray[customer].balance = atof(line);
+
             fgets(line, 80, filepointer);
             customer++;
         }
