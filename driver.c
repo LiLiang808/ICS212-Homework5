@@ -6,7 +6,7 @@
 int main(int argc, char* argv[])
 {
     struct account bankone[5];
-    int numcustomers = 5;
+    int numcustomers = 4;
     int customer = 0;
     int accnoTestCount = 1;
 
@@ -35,5 +35,5 @@ int main(int argc, char* argv[])
     bankone[customer].balance);
     }
 
-
+return 0;
 }
