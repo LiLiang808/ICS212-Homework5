@@ -8,27 +8,29 @@ void readfile(struct account accarray[], int* numcust, char filename[])
 {
     char line[80];
     int customer = 0;
-    int counter = 0;
-
-    customer = *numcust;
-
 
     FILE *filepointer;
     filepointer = fopen(filename, "r");
 
     if (filepointer != NULL)
     {
-
-        while (feof(filepointer) == 0)
+        for (customer = 0; customer < *numcust; customer++)
         {
-            fgets(accarray[customer].name, 80, filepointer);
+            fgets(line, 80, filepointer);
+
+            if (line[strlen(line) - 1] == '\n')
+            {
+                line[strlen(line) - 1] = '\0';
+            }
+
+            strcpy(accarray[customer].name,line);
 
             fgets(line, 80, filepointer);
 
-           if (line[strlen(line) - 1] == '\n')
-           {
-           line[strlen(line) - 1] = '\0';
-           }
+            if (line[strlen(line) - 1] == '\n')
+            {
+                line[strlen(line) - 1] = '\0';
+            }
             accarray[customer].accountno = atoi(line);
 
             fgets(line, 80, filepointer);
@@ -40,9 +42,10 @@ void readfile(struct account accarray[], int* numcust, char filename[])
 
             accarray[customer].balance = atof(line);
 
-            fgets(line, 80, filepointer);
-            customer++;
+
+
         }
+        fclose(filepointer);
     }
     else
     {
@@ -63,6 +66,7 @@ void writefile(struct account accarray[], int numcust, char filename[])
         accarray[customer].accountno, accarray[customer].balance);
 
     }
-        fclose(filepointer);
+
+    fclose(filepointer);
 
 }
