@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 
     for (customer = 0; customer < numcustomers; customer++)
     {
-    strcat(bankone[customer].name, "Name");
+    strcpy(bankone[customer].name, "Name");
     bankone[customer].accountno = accnoTestCount;
     bankone[customer].balance = 10.11;
     accnoTestCount++;
