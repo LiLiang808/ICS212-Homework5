@@ -11,6 +11,9 @@ int main(int argc, char* argv[])
     int accnoTestCount = 1;
     float balanceTestCount = 1.00;
 
+
+
+
     for (customer = 0; customer < numcustomers; customer++)
     {
     strcpy(bankone[customer].name, "Name");
@@ -24,7 +27,7 @@ int main(int argc, char* argv[])
 
     for (customer = 0; customer < numcustomers; customer++)
     {
-    strcpy(bankone[customer].name, "If this gets printf'd, readfile didn't work.");
+    strcpy(bankone[customer].name, "Readfile didn't work.");
     bankone[customer].accountno = 999;
     bankone[customer].balance = 999.999;
     }
@@ -33,8 +36,9 @@ int main(int argc, char* argv[])
 
     for (customer = 0; customer < numcustomers; customer++)
     {
-    printf("%s\n%d\n%f\n\n", bankone[customer].name, bankone[customer].accountno,
-    bankone[customer].balance);
+
+      printf("%s\n%d\n%f\n\n", bankone[customer].name, bankone[customer].accountno,
+      bankone[customer].balance);
     }
 
 return 0;
