@@ -120,8 +120,8 @@ int main(int argc, char* argv[])
     for (customer = 0; customer < 5; customer++)
     {
     strcpy(bankone[customer].name, "Blank");
-    bankone[customer].accountno = 999;
-    bankone[customer].balance = 999.999;
+    bankone[customer].accountno = 0;
+    bankone[customer].balance = 0.0;
     }
     numcustomers = 3;
     readfile(bankone, &numcustomers, "test1rec.txt");
