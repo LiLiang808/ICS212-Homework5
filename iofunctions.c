@@ -16,7 +16,14 @@ void readfile(struct account accarray[], int* numcust, char filename[])
     {
         for (customer = 0; customer < *numcust; customer++)
         {
+
+
             fgets(line, 80, filepointer);
+
+            if (feof(filepointer))
+            {
+              break;
+            }
 
             if (line[strlen(line) - 1] == '\n')
             {
@@ -47,7 +54,7 @@ void readfile(struct account accarray[], int* numcust, char filename[])
     }
     else
     {
-        printf("\nError opening file");
+        printf("Error opening file. Cannot find file called %s", filename);
     }
 }
 
@@ -60,17 +67,27 @@ void writefile(struct account accarray[], int numcust, char filename[])
 
     if (filepointer != NULL)
     {
-        for (customer = 0; customer < numcust; customer++)
+        if (numcust > 0)
         {
-            fprintf(filepointer,"%s\n%d\n%f\n", accarray[customer].name,
-            accarray[customer].accountno, accarray[customer].balance);
 
+            for (customer = 0; customer < numcust; customer++)
+            {
+                fprintf(filepointer,"%s\n%d\n%f\n", accarray[customer].name,
+                accarray[customer].accountno, accarray[customer].balance);
+
+            }
+
+            fclose(filepointer);
         }
-
-        fclose(filepointer);
+        else
+        {
+            printf("Error, cannot add %d customers to file\n", numcust);
+            fclose(filepointer);
+        }
     }
     else
     {
-        printf("\nError opening file");
+        printf("Error opening file\n");
+
     }
 }
