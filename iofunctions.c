@@ -1,8 +1,41 @@
+/*****************************************************************
+//
+// NAME: Alex Watanabe
+//
+// HOMEWORK: 5
+//
+// CLASS: ICS 212
+//
+// INSTRUCTOR: Ravi Narayan
+//
+// DATE: Feb 20 , 2016
+//
+// FILE: iofunctions.c
+//
+// DESCRIPTION: This file contains the iofunctions for Homework 5
+//
+//****************************************************************/
+
 #include "ioheader.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*****************************************************************
+//
+// Function name: readfile
+//
+// DESCRIPTION: Function that reads records from a file into a provided
+//              array of records. The record has parameters name (char[])
+//              accountno (int), and balance (float). Will stop when
+//              the number of records requrested have been read or
+//              the end of file has been reached, whichever is first.
+//
+// Parameters:  accarray (account []): array of records to be filled.
+//              numcust (int*) : Pointer to requested number of customers
+//              filename (char[]) : Name of file to be read from.
+//
+//****************************************************************/
 
 void readfile(struct account accarray[], int* numcust, char filename[])
 {
@@ -54,9 +87,23 @@ void readfile(struct account accarray[], int* numcust, char filename[])
     }
     else
     {
-        printf("Error opening file. Cannot find file called %s", filename);
+        printf("Error opening file. Cannot find file called %s\n", filename);
     }
 }
+
+/*****************************************************************
+//
+// Function name: writefile
+//
+// DESCRIPTION: Writes data from provided records to the specified file.
+//              Will create a file if file does not exist.
+//              If file aleady exists, it appends to the file.
+//
+// Parameters:  accarray (account[]) : The array of records to be written.
+//              numcust(int) : the number of records to be added.
+//              filename (char[]) : The name of the file to write to.
+//
+//****************************************************************/
 
 void writefile(struct account accarray[], int numcust, char filename[])
 {
