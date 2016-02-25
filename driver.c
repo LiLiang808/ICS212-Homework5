@@ -158,7 +158,7 @@ int main(int argc, char* argv[])
     printf("\n***Test of readfile***");
     printf("\nFrom here, if any output says 'Readfile didn't work', then");
     printf(" the function isn't working.\n");
-    printf("\nTest when filename is invalid. Should print an error.\n");
+    printf("\nTest when filename is invalid. Should return -1 on error.\n");
 
     errorcheck = readfile(bankone, &numcustomers, "NonExistantFile.txt");
 
@@ -202,7 +202,7 @@ int main(int argc, char* argv[])
     }
 
     printf("\nTest of reading a single record,");
-    printf(" 1 record will be read and printed from test1rec.txt\n");
+    printf(" 1 record will be read from test1rec.txt\n");
 
     for (customer = 0; customer < 5; customer++)
     {

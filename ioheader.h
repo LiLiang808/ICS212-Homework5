@@ -16,5 +16,5 @@
 //
 //****************************************************************/
 #include "account.h"
-int readfile(struct account accarray[], int*, char []);
-int writefile(struct account accarray[], int, char []);
+int readfile(struct account accarray[], int* numcust, char filename[]);
+int writefile(struct account accarray[], int numcust, char filename[]);
